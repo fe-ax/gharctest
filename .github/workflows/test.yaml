@@ -8,3 +8,10 @@ jobs:
     runs-on: github-arc-runner-test
     steps:
     - run: echo "🎉 This job uses runner scale set runners!"
+    - uses: actions/checkout@v4
+    - name: Setup Go
+      uses: actions/setup-go@v4
+    - name: Compile Hello World
+      run: go build -o hw test.go
+    - name: Run Hello World
+      run: ./hw
